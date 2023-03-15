@@ -1,4 +1,3 @@
-# 11728
 
 
 
@@ -8,30 +7,36 @@
 
 
 
-N, M = map(int, input().split())
-list1 = list( map(int, input().split()) )
-list2 = list( map(int, input().split()) )
 
-list1_len = len(list1)
-list2_len = len(list2)
-result = [0]*(list1_len + list2_len)
-i = 0
-j = 0
-while True:
-    if i >= list1_len:
-        for k in range(j, list2_len):
-            result[i+k] = list2[k]
-        break
-    if j >= list2_len:
-        for k in range(i, list1_len):
-            result[j+k] = list1[k]
-        break
 
-    if list1[i] <= list2[j]:
-        result[i+j] = list1[i]
-        i += 1
-    else:
-        result[i+j] = list2[j]
-        j += 1
 
-print(' '.join(map(str, result)))
+
+
+
+
+# returns the new pivot index
+def partition(array, low, high):
+    # if high <= low: return
+    pivot = array[low]
+    l = low + 1
+    r = high
+ 
+    while True:
+        while (l <= r and array[l] <= pivot): l += 1
+        while (l <= r and array[r] >= pivot): r -= 1
+        if (r < l): break
+        (array[r], array[l]) = (array[l], array[r])
+    (array[r], array[low]) = (array[low], array[r])
+    return r
+ 
+def quickSort(array, low, high):
+    print(array)
+    if low < high:
+        pi = partition(array, low, high)
+        print(pi)
+        quickSort(array, low, pi - 1)
+        quickSort(array, pi + 1, high)
+
+a = [123,235646,243,52,34,2,62,5231,45]
+quickSort(a, 0, len(a)-1)
+print(a)

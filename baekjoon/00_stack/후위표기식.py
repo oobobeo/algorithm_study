@@ -23,8 +23,14 @@ curr 이
 다른 풀이들 보니까 문제에서 시킨대로 '()'추가 안하고 걍 후위표위식 어떻게 변환하는지 외워서 푼거 같다.
 훨씬 깔끔하게 풀린다.
 <다른 풀이>
+stack사용
+'(': stack.append
+'-+': stack 이 비거나 stack[-1]!='(' 이면: result <- stack.pop(); stack.append(현재)
+'*/': stack 이 비거나 stack[-1]=='*/' 이면: result <- stack.pop(); stack.append(현재) # '*/ 가 +- 보다 우위'
+')':  stack 이 비거나 stack[-1]!='(' 이면: result <- stack.pop(); stack.pop()
+'alpha': result.append(현재)
 
-
+eq다 돌렸으면, stack에 남은것들 다 pop해서 result에 append
 '''
 
 

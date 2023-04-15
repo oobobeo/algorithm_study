@@ -1,20 +1,11 @@
 # 1747
 
-
-
-
-
-
 def is_pal(x):
     x = str(x)
-    i = 0
-    for _ in range(len(x)//2 + 1):
+    for i in range(len(x)//2 + 1):
         if x[i] != x[-1-i]:
             return False
     return True
-
-
-
 
 N = int(input())
 
@@ -34,18 +25,3 @@ while True:
         print(n)
         exit(0)
     n += 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

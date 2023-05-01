@@ -18,6 +18,9 @@ public class AB {
 		while (!q.isEmpty()) {
 			ans++;
 			int size = q.size();
+			//System.out.println(q);
+			//System.out.println("size" + size);
+			//System.out.println("q" + q.size());
 			for (int i = 0; i < size; i++) {
 			long now = q.poll();
 			if (now > b) continue;

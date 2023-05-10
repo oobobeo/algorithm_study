@@ -35,6 +35,7 @@ while coin:
     for i in range(c,K+1): # target = i
         offset = 1
         dp[i] = min(dp[i],dp[i-offset*c]+offset)
+        
 if dp[K] != 1000000:
     print(dp[K])
 else:

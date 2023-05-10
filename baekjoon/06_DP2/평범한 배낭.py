@@ -21,14 +21,19 @@ for _ in range(N):
 
 # wv.sort(reverse=True)
 
-dp = [-1]*(K+1) # dp[w] = v
+dp = [float("-inf")]*(K+1) # dp[w] = v
 dp[0] = 0
 for i in range(N):
     w,v = wv[i]
-    # print(w,v)
-    for j in range(len(dp)-1,-1,-1):
-        # print('j',j)
-        if j - w >= 0 and dp[j-w] != -1:
-            dp[j] = max(dp[j], dp[j-w]+v)
+
+    for j in range(len(dp)):
+        if j-w < 0:
+            continue
+        dp[j] = max(dp[j], dp[j-w]+v)
+
+
+    # for j in range(len(dp)-1,-1,-1):
+    #     if j - w >= 0 and dp[j-w] != -1:
+    #         dp[j] = max(dp[j], dp[j-w]+v)
     
 print(max(dp))

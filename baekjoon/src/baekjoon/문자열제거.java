@@ -37,7 +37,7 @@ import java.util.List;
 	            for (int j = 0; j < m; j++){
 	                erase now = list.get(j);
 	                if (s.startsWith(now.s, i)){
-	                    dp[i +now.s.length()] = Math.max(dp[i + now.s.length()], dp[i+now.cost] );
+	                    dp[i +now.s.length()] = Math.max(dp[i + now.s.length()], dp[i]+now.cost );
 	                }
 	            }
 	        }

@@ -33,8 +33,9 @@ public class 가장큰정사각형 {
 						idx++;
 						if (space != idx * idx) break;
 						res = idx * idx;
-						ans = Math.max(ans, res);
 					}
+						ans = Math.max(ans, res);
+					
 				}
 			}
 		}

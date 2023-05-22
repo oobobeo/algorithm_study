@@ -28,7 +28,8 @@ for i in range(1,N+1):
         if arr1[i-1] == arr2[j-1]\
             or (arr1[i-1] == 'i' and arr2[j-1] in ['i','j','l'])\
             or (arr1[i-1] == 'v' and arr2[j-1] in ['v', 'w']):
-            dp[i][j] = max(min(dp[i-1][j], dp[i-1][j-1], dp[i][j-1]), abs(j-i))
+            # dp[i][j] = max(min(dp[i-1][j], dp[i-1][j-1], dp[i][j-1]), abs(j-i))
+            dp[i][j] = max(dp[i-1][j-1], abs(j-i))
         else:
             dp[i][j] = max(min(dp[i-1][j], dp[i-1][j-1], dp[i][j-1]) + 1, abs(j-i))
 

@@ -27,7 +27,7 @@ while en <= N-2:
     en += 1
     cur_sum += arr[en]
     if cur_sum < S: continue
-    
+
     # cur_sum >= S
     while cur_sum >= S and st < en:
         if cur_sum - arr[st] >= S:
@@ -37,9 +37,9 @@ while en <= N-2:
             break
 
     length = min(length, en-st+1)
-    
 
-        
+
+
 # edge2) no possible sub_array
 if length == 1000000:
     print(0)

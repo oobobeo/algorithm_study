@@ -18,7 +18,7 @@ public class 파일정리 {
 			map.put(tmp[1], map.getOrDefault(tmp[1], 0)+1);
 		}
 		for (Entry<String, Integer> ans : map.entrySet()) {
-			sb.append(ans.getKey() + " " + ans.getValue() + " ");
+			sb.append(ans.getKey() + " " + ans.getValue()).append("\n");
 		}
 		System.out.println(sb.toString());
 	}

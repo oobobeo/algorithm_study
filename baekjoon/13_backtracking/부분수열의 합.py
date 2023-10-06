@@ -32,7 +32,3 @@ if S == 0:
     print(ans-1)
 else:
     print(ans)
-
-
-
-

@@ -1,3 +1,10 @@
+# 22865
+
+'''
+node 사이 edge가 두개 이상 있을수 있다..
+하루 종일 디버깅했다. 기억하자
+'''
+
 import sys
 from collections import defaultdict
 from heapq import *
@@ -13,9 +20,9 @@ for _ in range(M):
     d,e,l = map(int, sys.stdin.readline().split())
     nxts[d].append((e,l))
     nxts[e].append((d,l))
-    # weight[(d,e)] = l
-    # weight[(e,d)] = l
-
+    weight[(d,e)] = l # <- WRONG
+    weight[(e,d)] = l # <- WRONG
+print(weight)
 # dijkstra x 3 -> zip, min -> max
 total_dists = []
 for start in [A,B,C]:
@@ -27,13 +34,9 @@ for start in [A,B,C]:
         d, cur = heappop(h)
         if d > dists[cur]: continue # outdated
 
-        # for nxt in nxts[cur]:
-        #     if dists[nxt] > dists[cur] + weight[(cur,nxt)]:
-        #         dists[nxt] = dists[cur] + weight[(cur,nxt)]
-        #         heappush(h, (dists[nxt], nxt))
         for nxt, cost in nxts[cur]:
-            if dists[nxt] > dists[cur] + cost:
-                dists[nxt] = dists[cur] + cost
+            if dists[nxt] > dists[cur] + weight[(cur,nxt)]:
+                dists[nxt] = dists[cur] + weight[(cur,nxt)]
                 heappush(h, (dists[nxt], nxt))
     total_dists.append(dists)
 

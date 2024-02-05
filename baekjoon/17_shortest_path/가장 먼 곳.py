@@ -27,26 +27,15 @@ for start in [A,B,C]:
         d, cur = heappop(h)
         if d > dists[cur]: continue # outdated
 
-        for nxt in nxts[cur]:
-            if dists[nxt] > dists[cur] + weight[(cur,nxt)]:
-                dists[nxt] = dists[cur] + weight[(cur,nxt)]
+        # for nxt in nxts[cur]:
+        #     if dists[nxt] > dists[cur] + weight[(cur,nxt)]:
+        #         dists[nxt] = dists[cur] + weight[(cur,nxt)]
+        #         heappush(h, (dists[nxt], nxt))
+        for nxt, cost in nxts[cur]:
+            if dists[nxt] > dists[cur] + cost:
+                dists[nxt] = dists[cur] + cost
                 heappush(h, (dists[nxt], nxt))
     total_dists.append(dists)
-    # distance = [inf]*(N+1)
-    # distance[start] = 0
-    # pq = []
-    # heappush(pq, (0, start))
-    # while pq:
-    #     dist, now = heappop(pq)
-    #     if distance[now] < dist:
-    #         continue
-        
-    #     for next, cost in nxts[now]:
-    #         if cost + dist < distance[next]:
-    #             distance[next] = cost + dist
-    #             heappush(pq, (cost+dist, next))
-                
-    # total_dists.append(distance)
 
 mins = []
 for i,x in enumerate(zip(*total_dists)):
